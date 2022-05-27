@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { getUser } from '../helpers/getUser';
+import { Team } from './Team';
 import { UserGridItem } from './UserGridItem';
 
 export const UserGrid = () => {
@@ -9,6 +10,8 @@ export const UserGrid = () => {
         getUser().then(setImages);
     }, [])
     
+  //Estado inicial equipos
+  const [team, setTeam] = useState([]);
   
     
   return (
@@ -20,9 +23,14 @@ export const UserGrid = () => {
             images.map(img=>(
                 <UserGridItem 
                     key={img.id}
-                    {...img}/>
+                    img={img}
+                    team={team}
+                    setTeam={setTeam}
+                    images={images}/>
             ))
-           }
+        }
+        
+        <Team team={team} setTeam={setTeam}/>
         </div>  
     </div>
   )

@@ -20,6 +20,12 @@ export const useAuth = () => {
 export const AuthProvider=({children})=>{
 
     const [user, setUser] = useState(null);
+    
+    const [teams, setTeams] = useState({
+        data:[]
+    })
+
+
     const [loading, setLoading] = useState(true);
     const signup=(email,password)=>{
        return  createUserWithEmailAndPassword(auth,email,password);
@@ -40,6 +46,12 @@ export const AuthProvider=({children})=>{
         return sendPasswordResetEmail(auth,email);
     }
 
+    const addTeams = (team)=>{
+        let data= teams.data;
+        data.push(team);
+        setTeams({...teams,['data']:data})
+    }
+
     useEffect(() => {
       const unsubscribe =   onAuthStateChanged(auth,currentUser =>{
             setUser(currentUser);
@@ -49,7 +61,7 @@ export const AuthProvider=({children})=>{
     }, [])
     
     return (
-        <authContext.Provider value={{signup,login,user,logout,loading,loginWithGoogle,resetPassword}}>
+        <authContext.Provider value={{signup,login,user,logout,loading,loginWithGoogle,resetPassword,teams,addTeams}}>
             {children}
         </authContext.Provider>
     )
