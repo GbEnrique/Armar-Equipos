@@ -20,7 +20,7 @@ export const Team = ({team,setTeam}) => {
         <h3>Team</h3>
          <div className="container">{team.length===0 ?(<p>0</p>):(
          <div className="row align-items-start"  >
-            <div className="col-2">
+            <div className="col-5">
             {
                 team.map(user =>
                 <li className="" 
@@ -30,7 +30,7 @@ export const Team = ({team,setTeam}) => {
                     >{user.name}</li>)
             }
             </div>
-            <div className='col-2'>
+            <div className='col-5'>
                 <button onClick={AddTeam}
                     className='btn btn-primary'>Add Team</button>
             </div>
