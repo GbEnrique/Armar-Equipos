@@ -1,7 +1,19 @@
 import { useEffect } from "react";
-import { useAuth } from "../context/authContext"
+import { useAuth } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 export const ViewTeams = () => {
+
+  const navigate = useNavigate();
+  const handleBack=()=>{
+    try {
+      // await logout();
+    navigate("/newteam");
+    } catch (error) {
+      
+    }
+  }
+
   const {teams} = useAuth();
   useEffect(()=>{
       if(teams)
@@ -13,8 +25,13 @@ export const ViewTeams = () => {
   })
   return (
     <div>
-        <h1>My Team</h1>
+        <h1 className="text-light">My Team</h1>
         <hr />
+        <button 
+          onClick={handleBack}
+          className="mt-auto btn btn-secondary">
+          Back
+        </button>
         {
             teams && 
                 teams.data.map((team,i)=>

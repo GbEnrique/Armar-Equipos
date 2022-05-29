@@ -1,15 +1,30 @@
 import React from 'react'
 import { UserGrid } from './UserGrid';
-
+import { useNavigate } from "react-router-dom";
 export const UserApp = () => {
-   
+  const navigate = useNavigate();
+  const handleBack=()=>{
+    try {
+      // await logout();
+    navigate("/");
+    } catch (error) {
+      
+    }
+  }
   return (
     <div>
-        <h3 className='bg-white'>UserApp</h3>
+        <h3 className='text-light'>UserApp</h3>
         <hr/>
+        <button 
+          onClick={handleBack}
+          className="mt-auto btn btn-secondary">
+          Back
+        </button>
         <ol>
         <UserGrid  />
         </ol>
     </div>
   )
 }
+
+
