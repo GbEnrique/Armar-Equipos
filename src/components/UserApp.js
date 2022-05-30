@@ -17,7 +17,7 @@ export const UserApp = () => {
         <hr/>
         <button 
           onClick={handleBack}
-          className="mt-auto btn btn-secondary">
+          className="ms-4 btn btn-outline-secondary">
           Back
         </button>
         <ol>

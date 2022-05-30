@@ -25,7 +25,7 @@ export const UserGrid = () => {
     <div className=' bg-light container'>
         <div className="d-flex justify-content-between align-items-center">
             <h3>User</h3>
-            <Button variant="primary" onClick={handleShow}>
+            <Button className='mt-2' variant="primary" onClick={handleShow}>
                 See teams
             </Button>
         </div>

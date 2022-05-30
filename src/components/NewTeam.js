@@ -7,9 +7,7 @@ export const NewTeam = () => {
 
   return (
     <div>
-        {<UserApp/>}
-
-        
+        {<UserApp/>}       
         
     </div>
   )
