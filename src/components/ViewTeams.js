@@ -24,28 +24,37 @@ export const ViewTeams = () => {
       )))
   })
   return (
-    <div>
-        <h1 className="text-light">My Team</h1>
+    <div className="container bg-dark vh-100">
+        <h1 className="text-light">History Team</h1>
         <hr />
         <button 
           onClick={handleBack}
           className="mt-auto btn btn-secondary">
           Back
         </button>
-        {
+          <div className="row">
+          {
             teams && 
                 teams.data.map((team,i)=>
-                    <div  className="bg-white">
-                        <h3>team #{i+1}</h3>
-                       {
-                        
-                         team.map((a)=>(
-                            <li>{a.name}</li>
-                        ))   
-                       }
+                  <div className="col mt-4">
+                      <div className="card mb-4  shadow-lg" style={{width:310}}>
+                        <div  className="bg-white">
+                          <div className="border-bottom">
+                            <h3 className="card-title text-secondary p-2">Team #{i+1}</h3>
+                          </div>
+                            <ul className="list-group">
+                            {                          
+                            team.map((a)=>(
+                                <li className="list-group-item">{a.name}</li>
+                            ))   
+                          }
+                            </ul>
+                        </div>
+                      </div>
                     </div>
                 ) 
         }
+          </div>
     </div>
   )
 }
