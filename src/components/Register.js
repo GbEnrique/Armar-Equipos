@@ -27,7 +27,7 @@ export const Register = () => {
 
     try {
       await signup(user.email,user.password);
-      navigate('/home');
+      navigate('/');
 
     } catch (error) {
       setError(error.message)
